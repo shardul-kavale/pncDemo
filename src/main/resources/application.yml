@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    streams:
+      application-id: demo
+      properties:
+        schema.registry.url: http://localhost:8081
+        specific.avro.reader: true
+      default:
+        key-serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        value-serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+
+logging:
+  level:
+    root: INFO
+    org.apache.kafka: WARN
