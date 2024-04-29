@@ -1,5 +1,6 @@
 package com.pnc.demo.service;
 
+import com.pnc.demo.event.SetupCompleteEvent;
 import jakarta.annotation.PostConstruct;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -12,6 +13,7 @@ import org.apache.kafka.streams.kstream.Produced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import com.ibm.gbs.schema.*;
@@ -35,6 +37,7 @@ public class CustomerBalanceService {
 
     private static final Logger log = LoggerFactory.getLogger(CustomerBalanceService.class);
 
+    @EventListener(SetupCompleteEvent.class)
     @PostConstruct
     public void startStream() {
         //read Customer and reset the key to accountId

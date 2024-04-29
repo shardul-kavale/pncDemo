@@ -1,10 +1,14 @@
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: broker:29092
+    admin:
+      client-id: admin-client
+      properties:
+        retries: 5
     streams:
       application-id: demo
       properties:
-        schema.registry.url: http://localhost:8081
+        schema.registry.url: http://schema-registry:8081
         specific.avro.reader: true
       default:
         key-serde: org.apache.kafka.common.serialization.Serdes$StringSerde
