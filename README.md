@@ -20,4 +20,5 @@ Please have Docker Desktop intalled and running on your system
 
 ###### If facing schema errors while sending, then change value_schema_id to match your platforms, as it may be different.
 
+You can modify accountId for the above scripts and try more times, match will only happen if the account Ids match.
 Sending message to Customer first and not Balance will result in no match and the message will be send to a Dead Letter Queue.
