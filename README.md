@@ -9,6 +9,7 @@ Please have Docker Desktop intalled and running on your system
 - Run `docker compose up --build`
 - Allow 2-3 mins for the setup to finish. If demo-1 container stops (grey logo, instead of green), then press run icon.
 - Navigate to http://localhost:9021 on your browser. Once it successfully loads, the setup is complete
+- Visit CustomerBalance in Topics tab to listen for matches.
   
 #### The kafka setup and topic creation will be automatically handled, and you can directly start sending messages using your CMD
 
