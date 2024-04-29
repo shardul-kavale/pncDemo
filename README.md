@@ -10,7 +10,7 @@ Please have Docker Desktop intalled and running on your system
 - Allow 2-3 mins for the setup to finish. If demo-1 container stops (grey logo, instead of green), then press run icon.
 - Navigate to http://localhost:9021 on your browser. Once it successfully loads, the setup is complete
   
-#### The kafka setup and topic creation will be automatically handled, and you can directly start sending messages using you CMD
+#### The kafka setup and topic creation will be automatically handled, and you can directly start sending messages using your CMD
 
 ##### Send message to Balance:
 `curl --request POST --url http://localhost:8082/topics/Balance --header "accept: application/vnd.kafka.v2+json" --header "content-type: application/vnd.kafka.avro.v2+json" --data "{\"key_schema\": \"{\\\"name\\\":\\\"key\\\",\\\"type\\\": \\\"string\\\"}\", \"value_schema_id\": \"2\", \"records\": [{\"key\" : \"11\", \"value\": {\"balanceId\": \"123\", \"accountId\" : \"99\", \"balance\" : 2.34}}]}"`
