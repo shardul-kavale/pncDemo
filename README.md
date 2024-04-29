@@ -18,7 +18,7 @@ Please have Docker Desktop intalled and running on your system
 ##### Send message to Customer:
 `curl --request POST --url http://localhost:8082/topics/Customer --header "accept: application/vnd.kafka.v2+json" --header "content-type: application/vnd.kafka.avro.v2+json" --data "{\"key_schema\": \"{\\\"name\\\":\\\"key\\\",\\\"type\\\": \\\"string\\\"}\", \"value_schema_id\": \"1\", \"records\": [{\"key\" : \"678\", \"value\": {\"customerId\": \"678\", \"name\": \"Nicole Anne Dime\", \"phoneNumber\": \"888-888-8888\", \"accountId\": \"99\"}}]}"`
 
-###### If facing schema errors while sending, then change value_schema_id to match your platforms, as it may be different.
+##### If facing schema errors while sending, then change value_schema_id to match your platforms, as it may be different.
 
 You can modify accountId for the above scripts and try more times, match will only happen if the account Ids match.
 Sending message to Customer first and not Balance will result in no match and the message will be send to a Dead Letter Queue.
