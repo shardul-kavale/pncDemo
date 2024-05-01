@@ -45,25 +45,25 @@ public class KafkaStreamsConfig {
         return props;
     }
     @Bean
-    public SpecificAvroSerde<Customer> customerSerde(@Value("${spring.kafka.streams.properties.schema.registry.url}") String schemaRegistryUrl) {
+    public SpecificAvroSerde<Customer> customerSerde() {
         SpecificAvroSerde<Customer> serde = new SpecificAvroSerde<>();
         serde.configure(serdeConfig(), false);
         return serde;
     }
     @Bean
-    public SpecificAvroSerde<Balance> balanceSerde(@Value("${spring.kafka.streams.properties.schema.registry.url}") String schemaRegistryUrl) {
+    public SpecificAvroSerde<Balance> balanceSerde() {
         SpecificAvroSerde<Balance> serde = new SpecificAvroSerde<>();
         serde.configure(serdeConfig(), false);
         return serde;
     }
     @Bean
-    public SpecificAvroSerde<CustomerBalance> customerBalanceSerde(@Value("${spring.kafka.streams.properties.schema.registry.url}") String schemaRegistryUrl) {
+    public SpecificAvroSerde<CustomerBalance> customerBalanceSerde() {
         SpecificAvroSerde<CustomerBalance> serde = new SpecificAvroSerde<>();
         serde.configure(serdeConfig(), false);
         return serde;
     }
     @Bean
-    public SpecificAvroSerde<NoMatchDLQ> noMatchDLQSerde(@Value("${spring.kafka.streams.properties.schema.registry.url}") String schemaRegistryUrl) {
+    public SpecificAvroSerde<NoMatchDLQ> noMatchDLQSerde() {
         SpecificAvroSerde<NoMatchDLQ> serde = new SpecificAvroSerde<>();
         serde.configure(serdeConfig(), false);
         return serde;
