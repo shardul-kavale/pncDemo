@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -70,6 +71,7 @@ public class KafkaSetupConfig {
         NewTopic newTopic1 = new NewTopic("Customer", 2, (short) 1);
         NewTopic newTopic2 = new NewTopic("Balance", 2, (short) 1);
         NewTopic newTopic3 = new NewTopic("CustomerBalance", 2, (short) 1);
+        newTopic3.configs(Collections.singletonMap("cleanup.policy", "compact"));
         NewTopic newTopic4 = new NewTopic("NoMatchDLQ", 2, (short) 1);
         adminClient().createTopics(Arrays.asList(newTopic1, newTopic2, newTopic3, newTopic4)).all().get();
     }
