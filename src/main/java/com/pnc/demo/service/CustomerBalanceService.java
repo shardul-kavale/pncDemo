@@ -72,7 +72,7 @@ public class CustomerBalanceService {
         KStream<String, NoMatchDLQ> dlqStream = joinedStream
                 .filter((key, value) -> value.getBalance() == -1.0f)
                 .map((key, value) ->{
-                    NoMatchDLQ dlqRecord = new NoMatchDLQ(value.getAccountId(), value.getCustomerId(),value.getPhoneNumber());
+                    NoMatchDLQ dlqRecord = new NoMatchDLQ(value.getAccountId(),value.getPhoneNumber(), value.getCustomerId());
                     return new KeyValue<>(key, dlqRecord);
                 });
         dlqStream.to("NoMatchDLQ", Produced.with(Serdes.String(), noMatchDLQSerde));
